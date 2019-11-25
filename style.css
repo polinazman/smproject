@@ -1,0 +1,16 @@
+.container {
+	outline: solid 1px teal;
+	margin-top: 20px;
+}
+
+.row {
+	padding: 20px;
+}
+
+.col-sm-3half {
+    width: 200px;
+    height: 280px;
+    background: #abb1b8;
+    outline: solid 1px teal;
+    margin: 15px 10px 15px 10px;
+}
