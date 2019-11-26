@@ -1,23 +1,18 @@
-var request = new XMLHttpRequest();
-
-request.open("GET", "https://www.anapioficeandfire.com/api/characters");
-
-request.onload = function() {
-	var charData = JSON.parse(request.response);
-
-	for(var i = 0; i < 10; i++) {
-		var charName = charData.name[i];
-	}
-
-	console.log(charName);
-}
-
-request.send();
-
-fetch("https://www.anapioficeandfire.com/api/characters")
+fetch("https://www.anapioficeandfire.com/api/books/2")
 	.then((response) => {
 		return response.json();
 	})
 	.then(jsonResult => {
-		console.log(jsonResult);
+		for (var i = 0; i < jsonResult.povCharacters.length; i++){
+			var povUrl = jsonResult.povCharacters[i];
+			console.log(povUrl);
+
+			fetch(povUrl)
+			.then((response) => {
+				return response.json();
+			})
+			.then(jsonResult => {
+				console.log(jsonResult.name);
+			})
+		}
 	})
