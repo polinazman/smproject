@@ -1,6 +1,15 @@
+h1, .subhead {
+  text-align: center;
+}
+
+#heading {
+  padding-top: 9px;
+  font-size: 1.8em;
+}
+
 .container {
 	outline: solid 1px teal;
-	margin-top: 20px;
+  margin-bottom: 10px;
 }
 
 .row {
@@ -9,7 +18,7 @@
 
 .col-sm-3half {
     width: 205px;
-    height: 300px;
+    height: 280px;
     background: #abb1b8;
     outline: solid 1px teal;
     margin: 15px 10px 15px 10px;
@@ -40,6 +49,46 @@
 	font-size: 1em;
 }
 
+.c-card {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  visibility: hidden;
+  }
+
 .card-container {
 	padding: 10px;
+}
+
+.card-select:hover {
+  background-color: #8e9399;
+  cursor: pointer;
+}
+
+.card-select:focus {
+  background-color: #1779ba;
+}
+
+.card-select.is-selected {
+  border: 1px solid #1779ba;
+  box-shadow: 0 0 10px #e6e6e6;
+  transition: all 0.5s ease;
+  background-color: #1779ba;
+}
+
+#message {
+  display: none;
+  text-align: center;
+  padding: 5px;
+  color: red;
+}
+
+#message.show {
+  display: inline;
+}
+
+.start {
+  width: 100%;
+  margin-bottom: 20px;
 }
