@@ -59,6 +59,7 @@ fetch("https://www.anapioficeandfire.com/api/books/2")
 						if($(this).hasClass("is-selected")) {
 							$(this).toggleClass("is-selected");
 							$("#message").removeClass('show');
+							$(".card-container .charName", this).toggleClass('charSelected');
 
 							document.getElementById("startGame").onclick = function() {
 								var player1 = document.getElementsByClassName("charSelected")[0].innerHTML;
@@ -70,7 +71,7 @@ fetch("https://www.anapioficeandfire.com/api/books/2")
 						}
 					}else{
 						$(this).toggleClass("is-selected");
-						$("is-selected .charName", this).toggleClass('charSelected');
+						$(".card-container .charName", this).toggleClass('charSelected');
 					}
 				});
 			})

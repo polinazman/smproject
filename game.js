@@ -21,12 +21,51 @@ function rollDice() {
 }, false);
 
 **/
+var player1Selections = new Array();
+var player2Selections = new Array();
+var currentPlayer = 0;
+var progress1 = 0;    // player 1 points
+var progress2 = 0;    // player 2 points
 
-var game = window.addEventListener("DOMContentLoaded", function() {
+window.addEventListener("DOMContentLoaded", function() {
 
-	import { player1 } from 'script.js'
-	alert(player1);
+	// 1. random number
+	var dice = Math.floor(Math.random() * 6) + 1;
 
+	var dice = {
+		sides: 6,
+		roll: function(){
+			var rolled = Math.floor(Math.random() * this.sides) + 1;
+			return rolled;
+		}
+	}
+
+	function show(url) {
+		var diceResult = document.getElementById("dice");
+		diceResult.setAttribute("src", url);
+	}
+
+	var button = document.getElementById("dice-roll");
+
+	button.onclick = function() {
+		var result = dice.roll();
+		show("graphics/dice" + result + ".png");
+	};
+	var handler = function(e) {
+                if (currentPlayer == 0) {
+                    this.innerHTML = "X";
+                    player1Selections.push(parseInt(this.id));
+                    player1Selections.sort(function(a, b) { return a - b });
+                }
+
+                else {
+                    this.innerHTML = "O";
+                    player2Selections.push(parseInt(this.id));
+                    player2Selections.sort(function(a, b) { return a - b });
+                }
+    }
+
+/**
 	var k = 0,
 	    turn = 0,
 	    allow = 1,
@@ -35,7 +74,15 @@ var game = window.addEventListener("DOMContentLoaded", function() {
 	    no = 0,
 	    allow_part = 1;
 	var control=1;
-	var user1, user2, user3, user4;
+	var player1, player2;
+
+	function player(name, position_array,color_half,starting_position) {
+	    this.color= color;
+	    this.position_array = position_array;
+	    this.starting_position=starting_position;
+	    this.color_half=color_half;
+
+	}
 
 	var dice = {
 		sides: 6,
