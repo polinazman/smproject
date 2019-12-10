@@ -51,6 +51,8 @@ window.addEventListener("DOMContentLoaded", function() {
 		var result = dice.roll();
 		show("graphics/dice" + result + ".png");
 	};
+
+/**
 	var handler = function(e) {
                 if (currentPlayer == 0) {
                     this.innerHTML = "X";
@@ -65,7 +67,6 @@ window.addEventListener("DOMContentLoaded", function() {
                 }
     }
 
-/**
 	var k = 0,
 	    turn = 0,
 	    allow = 1,

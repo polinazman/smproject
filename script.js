@@ -51,30 +51,42 @@ fetch("https://www.anapioficeandfire.com/api/books/2")
 				}
 
 				var cardLimit = 2;
-				$('[data-cardSelect]').on("click", function(e) {
-					e.preventDefault();
+				var card = document.getElementsByClassName("card-select");
+				var selected = document.getElementsByClassName("is-selected");
+				var charName = document.getElementsByClassName("charName");
 
-					if($("[data-cardSelect].is-selected").length >= cardLimit){
+				function selectCards() {
+
+					if($(selected).length >= cardLimit) {
 						$("#message").addClass('show');
+						$("#startGame").addClass("selected");
 						if($(this).hasClass("is-selected")) {
 							$(this).toggleClass("is-selected");
 							$("#message").removeClass('show');
-							$(".card-container .charName", this).toggleClass('charSelected');
-
-							document.getElementById("startGame").onclick = function() {
-								var player1 = document.getElementsByClassName("charSelected")[0].innerHTML;
-								var player2 = document.getElementsByClassName("charSelected")[1].innerHTML;
-								console.log(player1 + " " + player2);
-
-								location.href = "board.html";
-							}
+							$(this).find(charName).toggleClass('charSelected');
 						}
+
 					}else{
 						$(this).toggleClass("is-selected");
-						$(".card-container .charName", this).toggleClass('charSelected');
+						$(this).find(charName).toggleClass('charSelected');
+						console.log("Selected");
 					}
-				});
-			})
+
+				};
+					outerDiv.addEventListener("click", selectCards, false);
+
+				document.getElementById("startGame").onclick = function() {
+
+					if($(selected).length >= cardLimit) {
+						var player1 = document.getElementsByClassName("charSelected")[0].innerHTML;
+						var player2 = document.getElementsByClassName("charSelected")[1].innerHTML;
+						console.log("ok");
+
+						//location.href = "board.html";
+					}
+
+				}
+			});
 			
 		}
 	})

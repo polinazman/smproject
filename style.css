@@ -92,3 +92,13 @@ h1, .subhead {
   width: 100%;
   margin-bottom: 20px;
 }
+
+#startGame {
+  background-color: #a6a6a6;
+  border-color: #a6a6a6;
+}
+
+#startGame.selected {
+  background-color: #007bff;
+  border-color: #007bff;
+}
