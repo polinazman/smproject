@@ -59,7 +59,6 @@ fetch("https://www.anapioficeandfire.com/api/books/2")
 
 					if($(selected).length >= cardLimit) {
 						$("#message").addClass('show');
-						$("#startGame").addClass("selected");
 						if($(this).hasClass("is-selected")) {
 							$(this).toggleClass("is-selected");
 							$("#message").removeClass('show');
@@ -70,6 +69,13 @@ fetch("https://www.anapioficeandfire.com/api/books/2")
 						$(this).toggleClass("is-selected");
 						$(this).find(charName).toggleClass('charSelected');
 						console.log("Selected");
+					}
+					
+					if($(selected).length === cardLimit) {
+						console.log(selected.length);
+						$("#startGame").addClass("selected");
+					}else{
+						$("#startGame").removeClass("selected");
 					}
 
 				};
@@ -82,7 +88,7 @@ fetch("https://www.anapioficeandfire.com/api/books/2")
 						var player2 = document.getElementsByClassName("charSelected")[1].innerHTML;
 						console.log("ok");
 
-						//location.href = "board.html";
+						location.href = "board.html";
 					}
 
 				}
