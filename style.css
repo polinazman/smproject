@@ -1,3 +1,11 @@
+.pregame {
+display: none;  
+}
+
+.game {
+display: none;
+}
+
 h1, .subhead {
   text-align: center;
 }
@@ -8,12 +16,12 @@ h1, .subhead {
 }
 
 .container {
-	outline: solid 1px teal;
+  outline: solid 1px teal;
   margin-bottom: 10px;
 }
 
 .row {
-	padding: 5px;
+  padding: 5px;
 }
 
 .col-sm-3half {
@@ -26,7 +34,7 @@ h1, .subhead {
 }
 
 .col-sm-3half:hover {
-	background: #f1f1f1;
+  background: #f1f1f1;
 }
 
 ::-webkit-scrollbar {
@@ -46,7 +54,7 @@ h1, .subhead {
 }
 
 .h4 {
-	font-size: 1em;
+  font-size: 1em;
 }
 
 .c-card {
@@ -58,7 +66,7 @@ h1, .subhead {
   }
 
 .card-container {
-	padding: 10px;
+  padding: 10px;
 }
 
 .card-select:hover {
@@ -101,4 +109,45 @@ h1, .subhead {
 #startGame.selected {
   background-color: #007bff;
   border-color: #007bff;
+}
+
+#row1, #row2, #row3, #row4, #row5 {
+  margin-left: unset;
+  margin-right: unset;
+}
+
+.col-sm-2b {
+  background: #000;
+  height: 90px;
+  width: 90px;
+  margin: 6px 6px;
+  display: inline-block;
+}
+
+.tilenumber {
+  color: white;
+  text-align: right;
+  vertical-align: bottom;
+  padding: 5px;
+  font-size: 0.8em;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.tiletext {
+  color: white;
+  text-align: center;
+  padding: 5px;
+}
+
+.controls {
+  margin-top: 10px;
+}
+
+.current {
+  font-weight: bold;
+}
+
+#dice-roll {
+  margin-bottom: 5px;
 }

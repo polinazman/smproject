@@ -1,30 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="utf-8">
-	<meta name="description" content="Game of Thrones Board game">
-	<meta name="keywords" content="game of thrones, game, board, play">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Game of Thrones Board Game</title>
-	<link href="style.css" type="text/css" rel="stylesheet">
+    <meta charset="utf-8">
+    <meta name="description" content="Game of Thrones Board game">
+    <meta name="keywords" content="game of thrones, game, board, play">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game of Thrones Board Game</title>
+    <link href="style.css" type="text/css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-	<link href="https://fonts.googleapis.com/css?family=Muli:400,600|Playfair+Display:400,700i|Roboto:400,500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Muli:400,600|Playfair+Display:400,700i|Roboto:400,500&display=swap" rel="stylesheet">
 </head>
 <body>
     <h1 id="heading">Game of Thrones Board Game</h1>
-    <div class="subhead">
+        <div class="subhead">
         <p>Choose your characters. Max. 2</p>
         <p class="message" id="message">You have reached maximum</p>
     </div>
-    <div class="container">
+    <div class="container" id="characters">
         <div class="row" id="cards">
         </div>
         <button class="btn btn-primary start" id="startGame">Start game</button>
     </div>
-	<footer>
-	</footer>
+    <div class="game-container pregame" id="board">
+            <div class="row d-flex justify-content-center" id="row1">
+                <div class="col-sm-2b" id="tile25"></div>
+                <div class="col-sm-2b" id="tile26"></div>
+                <div class="col-sm-2b" id="tile27"></div>
+                <div class="col-sm-2b" id="tile28"></div>
+                <div class="col-sm-2b" id="tile29"></div>
+                <div class="col-sm-2b" id="tile30">Finish</div>
+            </div>
+            <div class="row d-flex justify-content-center" id="row2">
+                <div class="col-sm-2b" id="tile24"></div>
+                <div class="col-sm-2b" id="tile23"></div>
+                <div class="col-sm-2b" id="tile22"></div>
+                <div class="col-sm-2b" id="tile21"></div>
+                <div class="col-sm-2b" id="tile20"></div>
+                <div class="col-sm-2b" id="tile19"></div>
+            </div>
+            <div class="row d-flex justify-content-center" id="row3">
+                <div class="col-sm-2b" id="tile13"></div>
+                <div class="col-sm-2b" id="tile14"></div>
+                <div class="col-sm-2b" id="tile15"></div>
+                <div class="col-sm-2b" id="tile16"></div>
+                <div class="col-sm-2b" id="tile17"></div>
+                <div class="col-sm-2b" id="tile18"></div>
+            </div>
+            <div class="row d-flex justify-content-center" id="row4">
+                <div class="col-sm-2b" id="tile12"></div>
+                <div class="col-sm-2b" id="tile11"></div>
+                <div class="col-sm-2b" id="tile10"></div>
+                <div class="col-sm-2b" id="tile9"></div>
+                <div class="col-sm-2b" id="tile8"></div>
+                <div class="col-sm-2b" id="tile7"></div>
+            </div>
+            <div class="row d-flex justify-content-center" id="row5">
+                <div class="col-sm-2b" id="tile1">
+                    <p class="tiletext">Start</p>
+                    <p id="startTile-residents"></p>
+                    <p class="tilenumber" id="tile1-name">1</p>
+                </div>
+                <div class="col-sm-2b" id="tile2">
+                    <p class="tilenumber" id="tile2-name">2</p>
+                </div>
+                <div class="col-sm-2b" id="tile3">
+                    <p class="tilenumber" id="tile3-name">3</p>
+                </div>
+                <div class="col-sm-2b" id="tile4">
+                    <p class="tilenumber" id="tile4-name">4</p>
+                </div>
+                <div class="col-sm-2b" id="tile5">
+                    <p class="tilenumber" id="tile5-name">5</p>
+                </div>
+                <div class="col-sm-2b" id="tile6">
+                    <p class="tilenumber" id="tile6-name">6</p>
+                </div>
+            </div>
+        <div class="container controls">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="player-name" id="player1"></div>
+                    </div>
+                    <div class="col-sm-4 justify-content-center d-flex"><button type="button" id="dice-roll">Roll dice</button></div>
+                    <div class="col-sm-4 text-right">
+                        <div class="player-name" id="player2"></div>
+                    </div>
+                </div>
+            <div class="row wrapper">
+                <div class="col-sm-12 justify-content-center d-flex">
+                    <img src="graphics/dice1.png" id="dice" class="dice1">
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+    </footer>
     <script src="script.js"></script>
 </body>
 </html>
