@@ -10,12 +10,15 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Muli:400,600|Playfair+Display:400,700i|Roboto:400,500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto|Ubuntu&display=swap" rel="stylesheet">
 </head>
-<body>
-    <h1 id="heading">Game of Thrones Board Game</h1>
+<body id="mainpage">
+    <div class="head">
+        <img src="graphics/logo.png" class="logo">
+        <h1 id="heading">Game of Thrones Board Game</h1>
+    </div>
         <div class="subhead">
-        <p>Choose your characters. Max. 2</p>
+        <p class="choose">Choose your characters. Max. 2</p>
         <p class="message" id="message">You have reached maximum</p>
     </div>
     <div class="container" id="characters">
@@ -30,7 +33,7 @@
                 <div class="col-sm-2b" id="tile27"></div>
                 <div class="col-sm-2b" id="tile28"></div>
                 <div class="col-sm-2b" id="tile29"></div>
-                <div class="col-sm-2b" id="tile30">Finish</div>
+                <div class="col-sm-2b" id="tile30"></div>
             </div>
             <div class="row d-flex justify-content-center" id="row2">
                 <div class="col-sm-2b" id="tile24"></div>
@@ -59,7 +62,6 @@
             <div class="row d-flex justify-content-center" id="row5">
                 <div class="message"></div>
                 <div class="col-sm-2b" id="tile1">
-                    <p class="tiletext">Start</p>
                     <p id="tile1-residents"></p>
                 </div>
                 <div class="col-sm-2b" id="tile2">
@@ -80,23 +82,25 @@
             </div>
         <div class="container controls">
                 <div class="row">
-                    <div class="col-sm-4">
+                    <div class="col-sm-3">
                         <div class="player-name" id="player1"></div>
                     </div>
-                    <div class="col-sm-4 justify-content-center d-flex"><button type="button" id="dice-roll">Roll dice</button></div>
-                    <div class="col-sm-4 text-right">
+                    <div class="col-sm-3 justify-content-center d-flex">
+                        <button type="button" id="dice-roll"><img src="graphics/dice1.png" id="dice" class="dice1"></button>
+                    </div>
+                    <div class="col-sm-3 justify-content-center d-flex">
+                        <div class="container-message" id="messageP"></div>
+                    </div>
+                    <div class="col-sm-3 text-right">
                         <div class="player-name" id="player2"></div>
                     </div>
                 </div>
-            <div class="row wrapper">
-                <div class="col-sm-12 justify-content-center d-flex">
-                    <img src="graphics/dice1.png" id="dice" class="dice1">
-                </div>
-            </div>
         </div>
     </div>
-    <footer>
-    </footer>
+    <div class="win waiting" id="winner">
+        <div id="congrats"></div>
+        <a href="index.html" class="btn newgame">Play again</a>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>

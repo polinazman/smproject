@@ -7,14 +7,12 @@ fetch("https://www.anapioficeandfire.com/api/books/2")
 	.then(jsonResult => {
 		for (var i = 0; i < jsonResult.povCharacters.length; i++){
 			var povUrl = jsonResult.povCharacters[i];
-			console.log(povUrl);
 
 			fetch(povUrl)
 			.then((response) => {
 				return response.json();
 			})
 			.then(cardResult => {
-				console.log(cardResult.name);
 				var cards = document.getElementById("cards");
 
 				var outerDiv = document.createElement("div");
@@ -85,9 +83,6 @@ fetch("https://www.anapioficeandfire.com/api/books/2")
 						player1 = document.getElementsByClassName("charSelected")[0].innerHTML;
 						player2 = document.getElementsByClassName("charSelected")[1].innerHTML;
 						
-						console.log(player1);
-						console.log(player2);
-						
 						$(".game-container").toggleClass("pregame");
 						$(".subhead").addClass("game");
 						$("#characters").addClass("game");
@@ -150,8 +145,8 @@ var Game = (function() {
 	];
 
 	game.players = [
-		new Player(document.getElementById("player1"), "Triangle", "player1"),
-		new Player(document.getElementById("player2"), "Circle", "player2")
+		new Player(document.getElementById("player1"), "playerToken1", "player1"),
+		new Player(document.getElementById("player2"), "playerToken2", "player2")
 	];
 
 	game.currentPlayer = 0;
@@ -196,7 +191,10 @@ var Game = (function() {
 
 		if (moves === 6) {
 			game.currentPlayer = game.currentPlayer;
-			alert("You get another turn");
+			updateByID(
+        		"messageP",
+        		currentPlayer.name.innerHTML + ", the dice rolled 6. You get another turn!"
+     		);
 			
 		} else {
 			game.currentPlayer = nextPlayer(game.currentPlayer);
@@ -205,13 +203,16 @@ var Game = (function() {
 		if (currentTile + moves <= totalTiles) {
 			var nextTile = currentTile + moves;
 		} else {
-			alert("Congratulations " + game.players[game.currentPlayer].name.innerHTML + ", you win!");
+			$("#winner").toggleClass("waiting");
+			document.getElementById("congrats").innerHTML = "Congratulations " + game.players[game.currentPlayer].name.innerHTML + ", you win!";
+			$("#board").addClass('alerting');
+			$("#heading").addClass('alerting');
+
 		}
 
 		currentPlayer.currentTile = "tile" + nextTile;
 
 		var currentToken = document.getElementById(currentPlayer.id + "-token");
-		console.log(currentToken);
 		currentToken.parentNode.removeChild(currentToken);
 
 		currentPlayer.createToken(document.getElementById(currentPlayer.currentTile));
@@ -220,8 +221,43 @@ var Game = (function() {
 	function checkTile() {
 		var currentPlayer = game.players[game.currentPlayer];
 		var currentTileId = currentPlayer.currentTile;
-		console.log(currentTileId);
+
+		if (currentTileId === "tile5") {
+			game.moves = -2;
+			updateByID(
+        		"messageP",
+        		currentPlayer.name.innerHTML + ", you have been attacked by a dragon. Move two steps backwards."
+     		);
+		} else if (currentTileId === "tile10") {
+			game.moves = -2;
+			updateByID(
+        		"messageP",
+        		currentPlayer.name.innerHTML + ", you had to fight a walker. Move two steps backwards"
+     		);
+		} else if (currentTileId === "tile18") {
+			game.moves = -1;
+			updateByID(
+        		"messageP",
+        		currentPlayer.name.innerHTML + ", your horse got tired. Move one step backwards"
+     		);
+		} else if (currentTileId === "tile23") {
+			game.moves = -2;
+			updateByID(
+        		"messageP",
+        		currentPlayer.name.innerHTML + ", your enemies tried to poison you. Move two steps backwards"
+     		);
+		} else if (currentTileId === "tile27"){
+			game.moves = -1;
+			updateByID(
+        		"messageP",
+        		currentPlayer.name.innerHTML + ", a meeting with the Red Woman. Move one step backwards"
+     		);
+		}
 	}
+
+	function updateByID(id, msg) {
+    	document.getElementById(id).innerHTML = msg;
+  	}
 
 	function Tile(tileID) {
 		this.tileID = tileID;

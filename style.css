@@ -1,3 +1,12 @@
+#mainpage {
+  background: #14191d;
+  color: #FFF;
+}
+
+div {
+  font-family: Roboto;
+}
+
 .pregame {
 display: none;  
 }
@@ -6,7 +15,26 @@ display: none;
 display: none;
 }
 
-h1, .subhead {
+h1 {
+  font-family: Ubuntu;
+  display: inline-block;
+}
+
+.subhead {
+  text-align: center;
+  font-family: Ubuntu;
+}
+
+.choose {
+  text-align: center;
+}
+
+.logo {
+  display: inline-block;
+  height: 100px;
+}
+
+.head {
   text-align: center;
 }
 
@@ -18,6 +46,7 @@ h1, .subhead {
 .container {
   outline: solid 1px teal;
   margin-bottom: 10px;
+  outline: unset;
 }
 
 .row {
@@ -27,7 +56,7 @@ h1, .subhead {
 .col-sm-3half {
     width: 205px;
     height: 280px;
-    background: #abb1b8;
+    background: url(graphics/background.png);
     outline: solid 1px teal;
     margin: 15px 10px 15px 10px;
     overflow: auto;
@@ -55,6 +84,7 @@ h1, .subhead {
 
 .h4 {
   font-size: 1em;
+  font-family: Ubuntu;
 }
 
 .c-card {
@@ -74,15 +104,11 @@ h1, .subhead {
   cursor: pointer;
 }
 
-.card-select:focus {
-  background-color: #1779ba;
-}
-
 .card-select.is-selected {
-  border: 1px solid #1779ba;
   box-shadow: 0 0 10px #e6e6e6;
   transition: all 0.5s ease;
-  background-color: #1779ba;
+  outline-color: #FFF;
+  outline-width: 4px;
 }
 
 #message {
@@ -93,7 +119,7 @@ h1, .subhead {
 }
 
 #message.show {
-  display: inline;
+  display: block;
 }
 
 .start {
@@ -102,13 +128,13 @@ h1, .subhead {
 }
 
 #startGame {
-  background-color: #a6a6a6;
-  border-color: #a6a6a6;
+  background-color: #b19b8e;
+  border-color: #b19b8e;
 }
 
 #startGame.selected {
-  background-color: #007bff;
-  border-color: #007bff;
+  background-color: #527185;
+  border-color: #527185;
 }
 
 #row1, #row2, #row3, #row4, #row5 {
@@ -117,7 +143,7 @@ h1, .subhead {
 }
 
 .col-sm-2b {
-  background: #000;
+  background-color: #b19b8e;
   height: 90px;
   width: 90px;
   margin: 6px 6px;
@@ -140,8 +166,43 @@ h1, .subhead {
   padding: 5px;
 }
 
+#tile1 {
+  background: url(graphics/start.png);
+  background-size: cover;
+  background-position: center;
+  background-color:rgba(255, 255, 255, 0.8);
+}
+
+#tile5, #tile27 {
+  background: url(graphics/fire.png);
+  background-size: cover;
+  background-position: center;
+  background-color:rgba(177, 155, 142, 0.9);
+}
+
+#tile10, #tile18, #tile23 {
+  background: url(graphics/ice.png);
+  background-size: cover;
+  background-position: center;
+  background-color:rgba(177, 155, 142, 0.9);
+}
+
+#tile30 {
+  background: url(graphics/finish.png);
+  background-size: cover;
+  background-position: center;
+  background-color:rgba(255, 255, 255, 0.8);
+}
+
 .controls {
   margin-top: 10px;
+  outline: unset;
+}
+
+#dice-roll {
+  border: unset;
+  background: unset;
+  outline: none;
 }
 
 .current {
@@ -152,21 +213,77 @@ h1, .subhead {
   margin-bottom: 5px;
 }
 
-.Triangle {
-  display: inline-block;
-  width: 0;
-  height: 0;
-  border-left: 20px solid transparent;
-  border-right: 20px solid transparent;
-  border-bottom: 40px solid darkblue;
-}
-
-.Circle {
+.playerToken1 {
   display: inline-block;
   width: 40px;
   height: 40px;
-  background: darkblue;
-  -moz-border-radius: 50px;
-  -webkit-border-radius: 50px;
-  border-radius: 50px;
+  background: url(graphics/playerToken1.png);
+  background-position: center;
+  background-size: cover;
+  margin-top: 34px;
+}
+
+.playerToken2 {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  background: url(graphics/playerToken2.png);
+  background-position: center;
+  background-size: cover;
+  margin-top: 34px;
+}
+
+.currentPlayer {
+  font-weight: bold;
+}
+
+.container-message {
+  text-align: center;
+  padding: 10px;
+  width: 200px;
+  height: auto;
+  background: #527185;
+}
+
+.win {
+  padding: 20px;
+  background-color: #527185;
+  color: white;
+  margin-bottom: 15px;
+  position: fixed;
+  top: 30%;
+  left: 37.5%;
+  width: 400px;
+  height: 200px;
+}
+
+#congrats {
+  text-align: center;
+}
+
+.waiting {
+  display: none;
+}
+
+.alerting {
+    -webkit-filter: blur(10px);
+    -moz-filter: blur(10px);
+    -o-filter: blur(10px);
+    -ms-filter: blur(10px);
+    filter: blur(10px);
+}
+
+.newgame {
+  width: 300px;
+  margin-left: 30px;
+  margin-right: 30px;
+  margin-top: 80px;
+}
+
+.btn.newgame {
+  background: #313640;
+}
+
+a.btn {
+  color: #FFF;
 }
