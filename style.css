@@ -151,3 +151,22 @@ h1, .subhead {
 #dice-roll {
   margin-bottom: 5px;
 }
+
+.Triangle {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-bottom: 40px solid darkblue;
+}
+
+.Circle {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  background: darkblue;
+  -moz-border-radius: 50px;
+  -webkit-border-radius: 50px;
+  border-radius: 50px;
+}
